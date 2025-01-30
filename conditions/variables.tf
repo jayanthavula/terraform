@@ -4,8 +4,11 @@ variable "ami_id" {
   description = "This RHEL-9 AMI ID"
 }
 
+variable "environment" {
+  default = "prod"
+}
 variable "instance_type" {
-  default = "t2.micro"
+  default = "t3.micro"
 }
 
 variable "ec2_tags" {
@@ -39,3 +42,9 @@ variable "sg_tags" {
      Name = "expense-backend-dev"
   }
 }
+
+# ways: cmd, tfvars, env variable, deafult
+# 1. command line --> -var "<var-name>=<var-value>"
+# 2. tfvars file
+# 3. environment variable TF_VAR_<var-name> export TF_VAR_instanace_type="t3.xlarge"
+# 4. default
